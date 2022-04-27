@@ -1,0 +1,26 @@
+{
+  "name": "bank-application",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rigved-Bank-App-Project/Bank-Application.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rigved-Bank-App-Project/Bank-Application/issues"
+  },
+  "homepage": "https://github.com/Rigved-Bank-App-Project/Bank-Application#readme",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.3",
+    "mongodb": "^4.5.0"
+  }
+}

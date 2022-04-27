@@ -9,6 +9,10 @@ import { InvestorsComponent } from './investors/investors.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { AdvertisementsComponent } from './advertisements/advertisements.component';
+import { SuccessComponent } from './success/success.component';
+import { AccountActivitiesComponent } from './account-activities/account-activities.component';
+import { TransfersComponent } from './transfers/transfers.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +22,11 @@ import { AdvertisementsComponent } from './advertisements/advertisements.compone
     InvestorsComponent,
     AboutUsComponent,
     ContactUsComponent,
-    AdvertisementsComponent
+    AdvertisementsComponent,
+    SuccessComponent,
+    AccountActivitiesComponent,
+    TransfersComponent,
+    ChangePasswordComponent
   ],
   imports: [
     BrowserModule,

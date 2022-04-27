@@ -1,10 +1,9 @@
 //import all functions
 let express = require('express');
 let app = express();
-let bodyParser = require('body-parser');
 let cors = require('cors');
+let bodyParser = require('body-parser');
 let mongoClient = require('mongodb').MongoClient;
-
 let PORT = 3001;
 let dbURL = "mongodb://localhost:27017";
 
@@ -17,4 +16,27 @@ app.listen(PORT, () => {
 app.use(cors());
 app.use(bodyParser.json());
 
-//create the the services for contact app
+//create the the services for bank application
+
+// login service
+app.get("/bank/login/:id/:password", (request,response)=>{
+    let id = parseInt(request.params.id);
+    let pass = request.params.password;
+    mongoClient.connect(dbURL, {useNewUrlParser:true}, (error, client) => {
+        if(error){
+            throw error;
+        }
+        else{
+            let db =  client.db("mydb");
+            db.collection("customer").findOne({_id:id, password:pass})
+            .then((doc) => {
+                if(doc != null){
+                    response.json(doc)
+                }else{
+                    response.status(404).json({"message":`Sorry id and  password doesn't match`})
+                }
+                client.close();
+            })
+        }
+    })
+})

@@ -13,7 +13,8 @@ import { SuccessComponent } from './success/success.component';
 import { AccountActivitiesComponent } from './account-activities/account-activities.component';
 import { TransfersComponent } from './transfers/transfers.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
-
+import { ReactiveFormsModule,FormsModule } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +31,7 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,FormsModule,ReactiveFormsModule,HttpClient
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -10,9 +10,6 @@ export class BankService {
 
   constructor(private http:HttpClient) { }
 
-
-  constructor(private http:HttpClient) { }
-
   //login
   public login(id:number, password : string): Observable <any>{
     let url = `${this.baseURL}/${id}/${password}`;

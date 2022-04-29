@@ -14,7 +14,7 @@ import { AccountActivitiesComponent } from './account-activities/account-activit
 import { TransfersComponent } from './transfers/transfers.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { ReactiveFormsModule,FormsModule } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +31,7 @@ import { HttpClient } from '@angular/common/http';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,FormsModule,ReactiveFormsModule,HttpClient
+    AppRoutingModule,FormsModule,ReactiveFormsModule,HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

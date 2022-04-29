@@ -1,11 +1,15 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { HttpClient } from'@angular/common/http';
+
 @Injectable({
   providedIn: 'root'
 })
 export class BankService {
   baseURL = "http://localhost:3001/bank"
+
+  constructor(private http:HttpClient) { }
+
 
   constructor(private http:HttpClient) { }
 

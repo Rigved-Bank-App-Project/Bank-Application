@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { BankService } from '../bank.service';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { BankService } from '../bank.service';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -12,8 +13,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private builder: FormBuilder, 
     private service: BankService, 
-    private router: Router
-  ) { }
+    private router: Router) { }
 
   loginForm : FormGroup =this.builder.group({
     _id:[], password:[]
@@ -27,12 +27,18 @@ export class LoginComponent implements OnInit {
     let password = this.loginForm.controls['password'].value;
     this.service.login(id,password).subscribe({
       next : (data) => {
+
+        this.router.navigate(['success', data._id, data.password])
         this.router.navigate(['success', data._id])
+
       },
       error:(err)=>{
         this.errorMessage = err.error.message;
         this.loginForm.reset({});
       }
     })
+
+    let name = this.loginForm.value;
+    this.router.navigate(['success', name]);
   }
 }

@@ -10,11 +10,15 @@
     --input-border : #4285F4;
 }
 body{
-    background-color:#867AE9;
+    color: red;
+    background-color: antiquewhite;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+}
+h1 {
+    color: black;
 }
 .box{
     width: 400px;

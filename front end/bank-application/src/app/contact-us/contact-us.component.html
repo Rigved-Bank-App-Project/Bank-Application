@@ -1,29 +1,30 @@
-<div class="container">
-    <div style="text-align:center">
-      <h2>Contact Us</h2>
-      <p>Got a question? Have a suggestion? Technical report? Send feedback to kotak.reply@gmail.com or leave us a message:</p>
-    </div>
-    <div class="justify-content:center">
+<div class="container-fluid">
+    <div class="box">
+        <div style="text-align:center">
+          <h2>Contact Us</h2>
+          <br />
+          <p>Got a question? Have a suggestion? Technical report? Send feedback to kotak.reply@gmail.com or leave us a message:</p>
+        </div>
         <form action="">
-            <div>
+            <div class="field_box">
                 <label for="name">Name</label>
                 <br />
-                <input type="text" id="name" name="name" placeholder="Your name">
+                <input type="text" id="name" name="name" placeholder="Your name" class="form-input" autocomplete="off" required>
             </div>
-            <div>
+            <div class="field_box">
                 <label for="email">Email Id</label>
                 <br />
-                <input type="text" id="email" name="email" placeholder="Your Email Id">
+                <input type="text" id="email" name="email" placeholder="Your Email Id" class="form-input" autocomplete="off" required>
             </div>
-            <div>
+            <div class="field_box">
                 <label for="subject">Subject</label>
                 <br />
-                <textarea id="subject" name="subject" placeholder="Write something" style="height:170px"></textarea>
+                <textarea id="subject" name="subject" placeholder="Write something" style="height:150px"></textarea>
             </div>
             <br />
             <div>
-                <input type="submit" value="Submit">
+                <button type="submit">Submit</button>
             </div>
         </form>
     </div>
-  </div>
+</div>

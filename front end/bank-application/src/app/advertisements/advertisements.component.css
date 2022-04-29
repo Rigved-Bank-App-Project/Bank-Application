@@ -1,4 +1,4 @@
-.carousel-control.right, .carousel-control.left {
+/* .carousel-control.right, .carousel-control.left {
   background-image: none;
   color: #f4511e;
 }
@@ -14,4 +14,20 @@
 .carousel-inner img {
   width: 100%;
   margin: auto;
+} */
+
+/* .overlay-image {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  background-position: center;
+  background-size: cover;
 }
+
+.carousel-item {
+  height: 32rem;
+  color: white;
+  position: relative;
+} */

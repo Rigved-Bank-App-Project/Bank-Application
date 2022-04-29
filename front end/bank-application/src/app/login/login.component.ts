@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
     private builder: FormBuilder, 
     private service: BankService, 
     private router: Router) { }
-  
+
   loginForm : FormGroup =this.builder.group({
     _id:[], password:[]
   })
@@ -27,13 +27,17 @@ export class LoginComponent implements OnInit {
     let password = this.loginForm.controls['password'].value;
     this.service.login(id,password).subscribe({
       next : (data) => {
+
         this.router.navigate(['success', data._id, data.password])
+        this.router.navigate(['success', data._id])
+
       },
       error:(err)=>{
         this.errorMessage = err.error.message;
         this.loginForm.reset({});
       }
     })
+
     let name = this.loginForm.value;
     this.router.navigate(['success', name]);
   }

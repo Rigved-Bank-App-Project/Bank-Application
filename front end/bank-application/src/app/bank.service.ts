@@ -6,13 +6,12 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class BankService {
-  baseURL = "http://localhost:3001/bank"
+  baseURL = "http://localhost:3001/customer"
 
-  constructor(private http:HttpClient) { }
+  constructor(private _http:HttpClient) { }
 
-  //login
   public login(id:number, password : string): Observable <any>{
     let url = `${this.baseURL}/${id}/${password}`;
-    return this.http.get(url);
+    return this._http.get(url);
   }
 }

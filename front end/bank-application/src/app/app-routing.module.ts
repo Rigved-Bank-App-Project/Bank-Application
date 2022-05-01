@@ -14,9 +14,8 @@ import { TransfersComponent } from './transfers/transfers.component';
 const routes: Routes = [
   {path : "", component : HomeComponent},
   {path : "home", component : HomeComponent},
-  {path : "login", component : LoginComponent, children : [
-    {path : "", component : SuccessComponent},
-    {path : "success", component : SuccessComponent},
+  {path : "login", component : LoginComponent},
+  {path : "success/:id", component : SuccessComponent, children : [
     {path : "accountact", component : AccountActivitiesComponent},
     {path : "transfer", component : TransfersComponent},
     {path : "changepass", component : ChangePasswordComponent}

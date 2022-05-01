@@ -15,6 +15,7 @@ import { TransfersComponent } from './transfers/transfers.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,FormsModule,ReactiveFormsModule,HttpClientModule
+    AppRoutingModule,FormsModule,ReactiveFormsModule,HttpClientModule,
+    NgbModule
 
   ],
   providers: [],

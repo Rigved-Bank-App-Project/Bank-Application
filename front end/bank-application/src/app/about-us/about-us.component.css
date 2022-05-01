@@ -2,13 +2,9 @@ div{
     color: red;
     background-color: antiquewhite;
 }
-
-strong{
-    color: black;
+strong, h2, h4, h5{
+    color: maroon;
 }
 p{
-    color: blue;
-}
-img{
-    
+    color: black;
 }

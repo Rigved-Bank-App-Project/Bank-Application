@@ -5,6 +5,7 @@ import { AccountActivitiesComponent } from './account-activities/account-activit
 import { AdvertisementsComponent } from './advertisements/advertisements.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from './home/home.component';
 import { InvestorsComponent } from './investors/investors.component';
 import { LoginComponent } from './login/login.component';
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path : "home", component : HomeComponent},
   {path : "login", component : LoginComponent},
   {path : "success/:id", component : SuccessComponent, children : [
+    {path:'dash',component:DashboardComponent},
     {path : "accountact", component : AccountActivitiesComponent},
     {path : "transfer", component : TransfersComponent},
     {path : "changepass", component : ChangePasswordComponent}

@@ -61,3 +61,66 @@ app.get("/customer/:id/:password" , (request , response) =>{
         }
     });
 });
+
+// show customer deatils works
+app.get("/customer/:id", (request, response) => {
+    let id = parseInt(request.params.id);
+    mongoClient.connect(dbURL, {useNewUrlParser: true}, (error, client) => {
+        if(error) {
+            throw error;
+        } else {
+            let db = client.db("mydb");
+            db.collection('customer').findOne({_id: id})
+            .then((doc) => {
+                if(doc != null) {
+                    response.json(doc);
+                } else {
+                    response.status(409).json({"message": `Sorry wrong id ${id}`})
+                }
+                client.close();
+            });
+        }
+    });
+});
+// 3-> update transactions ---> /customer/:id/transfer ---> working
+app.post("/customer/:id/tran", (request, response) => {
+    let id = parseInt(request.params.id);
+    let transfer = request.body;
+    let ref_num =   Math.random().toString().slice(2,14);
+    mongoClient.connect(dbURL, { useNewUrlParser: true }, (error, client) => {
+        if (error) {
+            throw error;
+        } else {
+
+            let db = client.db("mydb");
+            let current_date = new Date().toUTCString();
+            db.collection("tran").insertOne({ customer_id: id, transfer, current_date, ref_num })
+                .then((doc) => {
+                    response.json(doc);
+                    client.close();
+                });
+        }
+    });
+});
+
+// update the password of a customer works
+app.put("/customer/:id/password/:pass", (request, response) => {
+    let id = parseInt(request.params.id);
+    let password = request.params.pass;
+    mongoClient.connect(dbURL, {useNewUrlParser: true}, (error, client) => {
+        if (error) {
+            throw error;
+        } else {
+            let db = client.db('mydb');
+            db.collection('customer').updateOne({_id: id}, {$set : {password: password}})
+            .then((doc) => {
+                if(doc != null) {
+                    response.json(doc);
+                } else {
+                    response.json({"message":`Sorry wrong id ${id} `})
+                }
+                client.close();
+            });
+        }
+    });
+});

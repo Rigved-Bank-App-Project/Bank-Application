@@ -1,0 +1,24 @@
+
+<h3>Customer Details :</h3>
+<div>
+    <table>
+        <tbody>
+        <tr>
+            <th>Name:</th>
+            <td *ngIf="name">{{name}}</td>
+        </tr>
+        <tr>
+            <th>Account No:</th>
+            <td *ngIf="accountNumber">{{accountNumber}}</td>
+        </tr>
+        <tr>
+            <th>Account Type:</th>
+            <td *ngIf="accountType">{{accountType}}</td>
+        </tr>
+        <tr>
+            <th>Available Balance:</th>
+            <td *ngIf="balance">{{balance}}</td>
+        </tr>
+    </tbody>
+    </table>
+</div>

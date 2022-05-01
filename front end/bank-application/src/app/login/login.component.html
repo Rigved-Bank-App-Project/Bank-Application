@@ -35,9 +35,6 @@
     <div class = "box">
         <h1>Login </h1>
         <div *ngIf = "errorMessage" class = "row">
-            <div class = "col-3">
-                <div class = "alert alert-danger">{{errorMessage}}</div>
-            </div>
         </div>
         <form [formGroup] = "loginForm" (ngSubmit) = "handleSubmit()">
            <div class = "field_box">

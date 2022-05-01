@@ -1,1 +1,18 @@
-<p>transfers works!</p>
+<div >
+   <form [formGroup]="transferForm" (ngSubmit)="handleTransfer()">
+   <div >
+       <label>
+    Account Number: &nbsp;
+    <input type = "number" formControlName = "accountNumber">&nbsp;</label><br/>
+    <label>Name:   &nbsp;
+    <input type = "text" formControlName = "name">&nbsp;</label><br/>
+    <label>IFSC:   &nbsp;
+    <input type = "text" formControlName = "IFSC">&nbsp;</label><br/>
+    <label> Amount:   &nbsp;
+    <input type = "number" formControlName = "Amount">&nbsp;</label><br/>
+    <label> <input type = "Submit" value = "TRANSFER" class="btn btn-success btn-sm"></label>
+   
+
+</div>
+</form>
+</div>

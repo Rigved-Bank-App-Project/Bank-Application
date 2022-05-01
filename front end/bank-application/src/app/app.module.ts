@@ -16,6 +16,7 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
 import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     SuccessComponent,
     AccountActivitiesComponent,
     TransfersComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

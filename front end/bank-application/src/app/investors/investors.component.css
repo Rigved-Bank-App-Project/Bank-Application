@@ -1,20 +1,17 @@
-marquee{
-    color:black;
-    background-color: red;
-}
-h3{
-    color: chartreuse;
-}
-h5{
-    columns: black;
-    background-color: aqua;
-}
-div{
-    background-color: bisque;
-}
 .img1{
-background-color:white;
-width: 20;
-height: 30;
-text-align: center;
+    color: red;
+    background-color:antiquewhite;
+    width: 20;
+    height: 30;
+    text-align: center;
+}
+div {
+    color: red;
+    background-color:antiquewhite;
+}
+p {
+    color:darkslategrey;
+}
+h3, h5, h6 {
+    color: maroon;
 }

@@ -41,15 +41,15 @@ app.use(bodyParser.json());
 //     })
 // })
 
-app.get("/customer/:cust_id/:pass" , (request , response) =>{
-    let cust_id = parseInt(request.params.id);
-    let pass = request.params.password;
+app.get("/customer/:id/:password" , (request , response) =>{
+    let id = parseInt(request.params.id);
+    let password = request.params.password;
     mongoClient.connect(dbURL , {useNewUrlParser: true} , (error , client) =>{
         if(error) {
             throw error;
         }else {
             let db = client.db("mydb");
-            db.collection("customer").findOne({_id:cust_id , password : pass})
+            db.collection("customer").findOne({_id:id , password : password})
             .then((doc) => {
                 if (doc!=null) {
                     response.json(doc)

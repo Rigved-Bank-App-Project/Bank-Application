@@ -11,11 +11,11 @@ import { BankService } from '../bank.service';
 export class LoginComponent implements OnInit {
 
   constructor(
-    private builder: FormBuilder, 
-    private service: BankService, 
-    private router: Router) { }
+    private _builder: FormBuilder, 
+    private _service: BankService, 
+    private _router: Router) { }
 
-  loginForm : FormGroup =this.builder.group({
+  loginForm : FormGroup =this._builder.group({
     _id:[], password:[]
   })
   errorMessage : string | undefined = undefined;
@@ -25,11 +25,11 @@ export class LoginComponent implements OnInit {
   handleSubmit(){
     let id = this.loginForm.controls['_id'].value;
     let password = this.loginForm.controls['password'].value;
-    this.service.login(id,password).subscribe({
+    this._service.login(id,password).subscribe({
       next : (data) => {
 
-        this.router.navigate(['success', data._id, data.password])
-        this.router.navigate(['success', data._id])
+        // this._router.navigate(['success', data._id, data.password])
+        this._router.navigate(['success', data._id])
 
       },
       error:(err)=>{
@@ -37,8 +37,5 @@ export class LoginComponent implements OnInit {
         this.loginForm.reset({});
       }
     })
-
-    let name = this.loginForm.value;
-    this.router.navigate(['success', name]);
   }
 }

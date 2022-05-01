@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { BankService } from '../bank.service';
 
@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
     private _router: Router) { }
 
   loginForm : FormGroup =this._builder.group({
-    _id:[], password:[]
+    _id:["",Validators.required], password:["",Validators.required]
   })
   errorMessage : string | undefined = undefined;
 
@@ -34,6 +34,7 @@ export class LoginComponent implements OnInit {
       },
       error:(err)=>{
         this.errorMessage = err.error.message;
+        alert("Please enter correct Customer-Id or Password")
         this.loginForm.reset({});
       }
     })

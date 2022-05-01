@@ -34,18 +34,17 @@
 <div class="container-fluid">
     <div class = "box">
         <h1>Login </h1>
-        <div *ngIf = "errorMessage" class = "row">
-        </div>
+
         <form [formGroup] = "loginForm" (ngSubmit) = "handleSubmit()">
            <div class = "field_box">
-               <label>Profile Id</label>
-               <input formControlName = "_id" type = "number" class = "form-control">
+               <label>Customer-Id</label>
+               <input formControlName = "_id" type = "number" class = "form-control" required>
            
                <label>Password</label>
-               <input formControlName = "password" type = "password" class = "form-control">
+               <input formControlName = "password" type = "password" class = "form-control" required>
                <br />
-               <input type = "submit" value = "Login" class = "btn btn-success">
-               <input type = "reset" value = "Reset" class = "btn btn-secondary">
+               <input type = "submit" value = "Sign-In" class = "btn btn-success">
+               
             </div>
         </form>
     </div>    

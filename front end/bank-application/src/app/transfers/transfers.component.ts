@@ -9,11 +9,11 @@ import { BankService } from '../bank.service';
 })
 export class TransfersComponent implements OnInit {
   name : string | undefined = undefined;
+  transfer: any | undefined = undefined;
   constructor(private _service: BankService, private _builder: FormBuilder, private _activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
   }
-  transfer: any | undefined = undefined;
 
   transferForm : FormGroup = this._builder.group({
     accountNumber:[], name:[], IFSC:[], Amount:[]

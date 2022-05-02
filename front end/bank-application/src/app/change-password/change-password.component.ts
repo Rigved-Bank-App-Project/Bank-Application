@@ -20,7 +20,7 @@ export class ChangePasswordComponent implements OnInit {
     let pass = this.password.controls['pass'].value;
     this._activatedRoute.parent?.parent?.params.subscribe({
       next: (params: Params) => {
-        this._service.updatePassword(params['id'], pass).subscribe({
+        this._service.updatePassword(params['id'],pass).subscribe({
           next: (data) => {
             console.log(data);
           },

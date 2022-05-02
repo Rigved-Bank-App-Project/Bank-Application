@@ -4,6 +4,7 @@ let app = express();
 let cors = require('cors');
 let bodyParser = require('body-parser');
 let mongoClient = require('mongodb').MongoClient;
+
 let PORT = 3001;
 let dbURL = "mongodb://localhost:27017";
 
@@ -18,28 +19,7 @@ app.use(bodyParser.json());
 
 //create the the services for bank application
 
-// login service
-// app.get("/bank/login/:id/:password", (request,response)=>{
-//     let id = parseInt(request.params.id);
-//     let pass = request.params.password;
-//     mongoClient.connect(dbURL, {useNewUrlParser:true}, (error, client) => {
-//         if(error){
-//             throw error;
-//         }
-//         else{
-//             let db =  client.db("mydb");
-//             db.collection("customer").findOne({_id:id, password:pass})
-//             .then((doc) => {
-//                 if(doc != null){
-//                     response.json(doc)
-//                 }else{
-//                     response.status(404).json({"message":`Sorry id and  password doesn't match`})
-//                 }
-//                 client.close();
-//             })
-//         }
-//     })
-// })
+// 1-login service
 
 app.get("/customer/:id/:password" , (request , response) =>{
     let id = parseInt(request.params.id);
@@ -62,7 +42,7 @@ app.get("/customer/:id/:password" , (request , response) =>{
     });
 });
 
-// show customer deatils works
+// 2-show customer deatils works
 app.get("/customer/:id", (request, response) => {
     let id = parseInt(request.params.id);
     mongoClient.connect(dbURL, {useNewUrlParser: true}, (error, client) => {
@@ -82,7 +62,7 @@ app.get("/customer/:id", (request, response) => {
         }
     });
 });
-// 3-> update transactions ---> /customer/:id/transfer ---> working
+// 3-> update transactions ---> /customer/:id/transfer
 app.post("/customer/:id/tran", (request, response) => {
     let id = parseInt(request.params.id);
     let transfer = request.body;
@@ -103,7 +83,7 @@ app.post("/customer/:id/tran", (request, response) => {
     });
 });
 
-// update the password of a customer works
+// 4->update the password of a customer works
 app.put("/customer/:id/password/:pass", (request, response) => {
     let id = parseInt(request.params.id);
     let password = request.params.pass;

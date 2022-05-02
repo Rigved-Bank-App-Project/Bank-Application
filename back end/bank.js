@@ -40,7 +40,7 @@ app.use(bodyParser.json());
 //         }
 //     })
 // })
-
+//login
 app.get("/customer/:id/:password" , (request , response) =>{
     let id = parseInt(request.params.id);
     let password = request.params.password;
@@ -62,7 +62,7 @@ app.get("/customer/:id/:password" , (request , response) =>{
     });
 });
 
-// show customer deatils works
+// show customer info
 app.get("/customer/:id", (request, response) => {
     let id = parseInt(request.params.id);
     mongoClient.connect(dbURL, {useNewUrlParser: true}, (error, client) => {
@@ -82,7 +82,7 @@ app.get("/customer/:id", (request, response) => {
         }
     });
 });
-// 3-> update transactions ---> /customer/:id/transfer ---> working
+// 3-> update transactions 
 app.post("/customer/:id/tran", (request, response) => {
     let id = parseInt(request.params.id);
     let transfer = request.body;
@@ -103,24 +103,140 @@ app.post("/customer/:id/tran", (request, response) => {
     });
 });
 
-// update the password of a customer works
-app.put("/customer/:id/password/:pass", (request, response) => {
+// // 4-> show transaction details based on customer id
+// app.get("/tran/customer/:id", (request, response) => {
+  
+//     let id = parseInt(request.params.id);
+//     mongoClient.connect(dbURL, { useNewUrlParser: true }, (error, client) => {
+//         if (error) {
+//             throw error;
+//         } else {
+//             let db = client.db("mydb");
+//             let users = []
+//             let cursor = db.collection("tran").find({ customer_id: id });
+//             cursor.forEach((doc, err) => {
+//                 if (err)
+//                     throw err;
+//                 users.push(doc);
+//             }, () => {
+//                 response.json(users);
+//                 client.close();
+//             });
+//         }
+//     });
+//   });
+
+
+  // transaction table
+app.get("/tran/customer/:id", (request, response) => {
+
     let id = parseInt(request.params.id);
-    let password = request.params.pass;
-    mongoClient.connect(dbURL, {useNewUrlParser: true}, (error, client) => {
+    mongoClient.connect(dbURL, { useNewUrlParser: true }, (error, client) => {
         if (error) {
             throw error;
         } else {
-            let db = client.db('mydb');
-            db.collection('customer').updateOne({_id: id}, {$set : {password: password}})
-            .then((doc) => {
-                if(doc != null) {
-                    response.json(doc);
-                } else {
-                    response.json({"message":`Sorry wrong id ${id} `})
-                }
+            let db = client.db("mydb");
+            let users = []
+            let cursor = db.collection("tran").find({ customer_id: id });
+            cursor.forEach((doc, err) => {
+                if (err)
+                    throw err;
+                users.push(doc);
+            }, () => {
+                response.json(users);
                 client.close();
             });
         }
     });
 });
+
+// update the password of a customer works
+// app.put("/customer/:id/password/:pass", (request, response) => {
+//     let id = parseInt(request.params.id);
+//     let password = request.params.pass;
+//     mongoClient.connect(dbURL, {useNewUrlParser: true}, (error, client) => {
+//         if (error) {
+//             throw error;
+//         } else {
+//             let db = client.db('mydb');
+//             db.collection('customer').updateOne({_id: id}, {$set : {password: password}})
+//             .then((doc) => {
+//                 if(doc != null) {
+//                     response.json(doc);
+//                 } else {
+//                     response.json({"message":`Sorry wrong id ${id} `})
+//                 }
+//                 client.close();
+//             });
+//         }
+//     });
+// });
+
+
+//////////////////////////////
+
+  // 5-> update balance on basis of account number ----> Working
+  
+//   app.put("/customer/:id/debited/:balance", (request, response) => {
+//     mongoClient.connect(dbURL, { useNewUrlParser: true }, (error, client) => {
+//         if (error) {
+//             throw error
+//         } else {
+//             let id = parseInt(request.params.id);
+//             let balance = parseInt(request.params.balance);
+//             let db = client.db("mydb");
+//             db.collection("customer").updateOne({ _id: id }, { $inc: { ac_balance: -balance } }).then((doc) => {
+//                 response.status(200).json(doc);
+//                 client.close();
+//             })
+//         }
+//     })
+//   })
+  
+  // 6-> update the password of a customer ---> working
+  
+//   app.put("/customer/:id/password/:pass", (request, response) => {
+//     let id = parseInt(request.params.id);
+//     let pass = (request.params.pass);
+//     mongoClient.connect(dbURL, { useNewUrlParser: true }, (error, client) => {
+//         if (error) {
+//             throw error;
+//         } else {
+//             let db = client.db('mydb');
+//             db.collection('customer').updateOne({ _id: id }, { $set: { password: pass } })
+  
+//             db.collection("customer").findOne({ _id: id })
+  
+//                 .then((doc) => {
+//                     if (doc != null) {
+//                         response.json(doc);
+//                     } else {
+//                         response.json({ "message": `Sorry wrong id ${id} ` })
+//                     }
+//                     client.close();
+//                 });
+//         }
+//     });
+//   });
+  
+//   // 7 -> update the transaction password by id: ----> working
+//   app.put("/customer/:id/transpass/:pass", (request, response) => {
+//     let id = parseInt(request.params.id);
+//     let pass = request.params.pass;
+//     mongoClient.connect(dbURL, { useNewUrlParser: true }, (error, client) => {
+//         if (error) {
+//             throw error;
+//         } else {
+//             let db = client.db("mydb");
+//             db.collection("customer").updateOne({ _id: id }, { $set: { transaction_pass: pass } })
+//                 .then((doc) => {
+//                     if (doc != null) {
+//                         response.json(doc);
+//                     } else {
+//                         response.json({ "message": `Sorry wrong id ${id} ` })
+//                     }
+//                     client.close();
+//                 });
+//         }
+//     });
+//   });

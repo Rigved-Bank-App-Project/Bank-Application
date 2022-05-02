@@ -1,4 +1,4 @@
-
+<div *ngIf="transaction">
 <table class="table table-stripped">
     <thead>
         <tr>
@@ -10,9 +10,15 @@
             <th>Date & Time</th>
         </tr>
     </thead>
-    <tbody>
-        <tr>
-          
-        </tr>
+    <!-- <tbody> -->
+        <tbody class="tbody" *ngFor="let x of transaction">
+            <td>{{x._id}}</td>
+            <td>{{x.ac_number}}</td>
+            <td>{{x.amount}}</td>
+            <td>Debit</td>
+            <td>{{x.ref_num}}</td>
+            <td>{{x.date_time}}</td> 
+        
     </tbody>
 </table>
+

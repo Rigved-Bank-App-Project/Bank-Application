@@ -15,21 +15,21 @@ Now we are working with backend (node , express, mongodb)
 # Day 2 Tuesday :
 Abhishek : Created database and 6 collections for project and for some problems regarding project finding solution , Rohit : backend , Jayesh : backend, Jui : frontend - created components 
 
-# Day 3:
+# Day 3 Wednesday :
 Abhishek : Finding solution on google for services, Rohit : backend , Jayesh : backend, Jui : Routing and Services
 Multiple Collections not working so created Single Collection having details...
 
-# Day : 4
+# Day 4 Thursday : 
 Rohit , Abhishek : Backend and doing server.js Jayesh : Backend and doing server.js , Jui : Backend and doing server.js
 Added 1 more collection for transaction
 
-# Day : 5
+# Day 5 Friday :
 Abhishek ,Rohit : done login for frontend and backend | Jui , Jayesh : Ui for home page and after login
 
-# Day 6:
+# Day 6 Saturday :
 Abhishek Shetty, Jui Modi, Jayesh Sawant, Rohit Garate:
   Implemented transfer and account activities in backend solving problem of connecting it to frontend
 
-# Day 7:
+# Day 7 Sunday :
 Abhishek Shetty, Jui Modi, Jayesh Sawant, Rohit Garate:
 Front-End -> Home-Page, Account Details, About-Us, Investors, Advertising, Contact-Us, Login Working Properly 

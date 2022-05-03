@@ -14,7 +14,6 @@ export class TransfersComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
   transferForm : FormGroup = this._builder.group({
     accountNumber:[], name:[], IFSC:[], Amount:[]
   });
@@ -49,21 +48,5 @@ export class TransfersComponent implements OnInit {
 //                 //this.modifiedCount=data.modifiedCount
 //               }
 //             });
-//             this._transaction_service.updatePasslogin(params['cust_id'],params['pass'],this.password.value,undefined).subscribe({
-//               next:(data)=>console.log(data)
-//             })
-            
-            
-//             this._rout.navigate(['/home'])
-//           }
-//         })
-  
-//       } else{
-        
-//         alert('password is not match')
-//       }
-//     }
-  
-//   }
-// }
+//
 

@@ -81,29 +81,6 @@ app.post("/customer/:id/tran", (request, response) => {
     });
 });
 
-// // 4-> show transaction details based on customer id
-// app.get("/tran/customer/:id", (request, response) => {
-  
-//     let id = parseInt(request.params.id);
-//     mongoClient.connect(dbURL, { useNewUrlParser: true }, (error, client) => {
-//         if (error) {
-//             throw error;
-//         } else {
-//             let db = client.db("mydb");
-//             let users = []
-//             let cursor = db.collection("tran").find({ customer_id: id });
-//             cursor.forEach((doc, err) => {
-//                 if (err)
-//                     throw err;
-//                 users.push(doc);
-//             }, () => {
-//                 response.json(users);
-//                 client.close();
-//             });
-//         }
-//     });
-//   });
-
 
   // transaction table
 app.get("/tran/customer/:id", (request, response) => {
@@ -127,6 +104,31 @@ app.get("/tran/customer/:id", (request, response) => {
         }
     });
 });
+
+
+// // 4-> show transaction details based on customer id
+// app.get("/tran/customer/:id", (request, response) => {
+  
+//     let id = parseInt(request.params.id);
+//     mongoClient.connect(dbURL, { useNewUrlParser: true }, (error, client) => {
+//         if (error) {
+//             throw error;
+//         } else {
+//             let db = client.db("mydb");
+//             let users = []
+//             let cursor = db.collection("tran").find({ customer_id: id });
+//             cursor.forEach((doc, err) => {
+//                 if (err)
+//                     throw err;
+//                 users.push(doc);
+//             }, () => {
+//                 response.json(users);
+//                 client.close();
+//             });
+//         }
+//     });
+//   });
+
 
 // update the password of a customer works
 // app.put("/customer/:id/password/:pass", (request, response) => {

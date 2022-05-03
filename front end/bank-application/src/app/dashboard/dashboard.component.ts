@@ -13,6 +13,7 @@ export class DashboardComponent implements OnInit {
   accountNumber:number|undefined=undefined;
   accountType:string|undefined=undefined;
   balance:number|undefined=undefined;
+  ifsc:string|undefined=undefined;
   ngOnInit(): void {
     this._activatedRoute.parent?.params.subscribe({
       next: (params:Params) => {
@@ -22,6 +23,7 @@ export class DashboardComponent implements OnInit {
             this.accountNumber=data.ac_number;
             this.accountType=data.ac_type;
             this.balance=data.ac_balance
+            this.ifsc=data.IFSC;
           }
         });
               }

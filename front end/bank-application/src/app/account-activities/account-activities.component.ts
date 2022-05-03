@@ -16,6 +16,7 @@ export class AccountActivitiesComponent implements OnInit {
         this._service.getTransactions(params['id']).subscribe({
           next: (data) => {
             this.transaction = data;
+            console.log(this.transaction);
           }
         });
       }

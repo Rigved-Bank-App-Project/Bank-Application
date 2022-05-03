@@ -27,7 +27,7 @@ export class TransfersComponent implements OnInit {
           next: (data) => {
             let balance = data.amount ;
             alert(`Money Transferred Successfully`);
-            // this._service.getBalance(params['id'], balance );
+     
           }
         });
       }

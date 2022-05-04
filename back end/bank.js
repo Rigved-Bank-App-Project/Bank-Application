@@ -131,26 +131,26 @@ app.get("/tran/customer/:id", (request, response) => {
 
 
 // update the password of a customer works
-// app.put("/customer/:id/password/:pass", (request, response) => {
-//     let id = parseInt(request.params.id);
-//     let password = request.params.pass;
-//     mongoClient.connect(dbURL, {useNewUrlParser: true}, (error, client) => {
-//         if (error) {
-//             throw error;
-//         } else {
-//             let db = client.db('mydb');
-//             db.collection('customer').updateOne({_id: id}, {$set : {password: password}})
-//             .then((doc) => {
-//                 if(doc != null) {
-//                     response.json(doc);
-//                 } else {
-//                     response.json({"message":`Sorry wrong id ${id} `})
-//                 }
-//                 client.close();
-//             });
-//         }
-//     });
-// });
+app.put("/customer/:id/password/:pass", (request, response) => {
+    let id = parseInt(request.params.id);
+    let password = request.params.pass;
+    mongoClient.connect(dbURL, {useNewUrlParser: true}, (error, client) => {
+        if (error) {
+            throw error;
+        } else {
+            let db = client.db('mydb');
+            db.collection('customer').updateOne({_id: id}, {$set : {password: password}})
+            .then((doc) => {
+                if(doc != null) {
+                    response.json(doc);
+                } else {
+                    response.json({"message":`Sorry wrong id ${id} `})
+                }
+                client.close();
+            });
+        }
+    });
+});
 
 
 //////////////////////////////

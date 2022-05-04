@@ -31,7 +31,7 @@ export class BankService {
 }
 //store
 public storeTransaction(id: number, debit:any): Observable<any> {
-  let url = `${this.baseURL}/${id}/transfer/${debit}`;
+  let url = `${this.baseURL}/${id}/tran`;
   return this._http.post(url,debit);
 
 }
